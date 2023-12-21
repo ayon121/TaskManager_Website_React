@@ -1,9 +1,18 @@
 import { Link, NavLink } from "react-router-dom";
 import { MdOutlineTaskAlt } from "react-icons/md";
 import { Spin as Hamburger } from 'hamburger-react'
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../Providers/Authproviders";
 const Navbar = () => {
     const [isOpen, setOpen] = useState(false)
+    const { user  , logout} = useContext(AuthContext)
+
+    const handlelogOut = () => {
+        logout()
+        .then()
+        .catch()
+    }
+
     const navlinks = <>
         <li><NavLink to="/"  className={({ isActive }) => isActive ? 'text-sm  font-bold text-main bg-sub_color' : 'text-sm  bg-transparent text-[#f8f5f5]'}>Home</NavLink></li>
         <li><NavLink to="/dashboard">DashBoard</NavLink></li>
@@ -33,8 +42,10 @@ const Navbar = () => {
                     <a className=" text-xl text-sub_color flex items-center"><span className="text-2xl">Task</span><MdOutlineTaskAlt />Pulse</a>
                 </div>
                 <div className="navbar-end">
-                    <Link to="/login"><button className="btn btn-sm md:btn-md text-main">Lets Explore</button></Link>
-                    
+                    {
+                         user ? <button onClick={handlelogOut} className="btn btn-sm md:btn-md text-main">Logout</button>
+                         : <Link to="/login"><button className="btn btn-sm md:btn-md text-main">Lets Explore</button></Link>
+                    }   
                 </div>
             </div>
         </div>
