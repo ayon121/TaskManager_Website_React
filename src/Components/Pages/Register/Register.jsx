@@ -12,7 +12,7 @@ const Register = () => {
         const form = new FormData(e.currentTarget);
         const email = form.get('email')
         const password = form.get('password')
-        const name = form.get('name')
+        // const name = form.get('name')
 
         // create user
         createUser(email, password)
@@ -29,7 +29,7 @@ const Register = () => {
                         <form onSubmit={handleRegister}>
                             <div className="card-body">
                                 <h2 className="text-2xl  text-center">Register Now</h2>
-                                <input type="text" name="username" placeholder="username" className="input input-bordered input-info w-full max-w-xs" />
+                                {/* <input type="text" name="username" placeholder="username" className="input input-bordered input-info w-full max-w-xs" /> */}
                                 <input type="email" name="email" placeholder="email" className="input input-bordered input-info w-full max-w-xs" />
                                 <input type="password" name="password" placeholder="Type here" className="input input-bordered input-info w-full max-w-xs" />
                                 <div className="card-actions justify-center">
