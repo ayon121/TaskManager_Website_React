@@ -1,6 +1,7 @@
 
 import { MdOutlineTaskAlt } from "react-icons/md";
 import whypic from '../../../../assets/images/whyus.jpg'
+import { Link } from "react-router-dom";
 
 const WhyTaskPulse = () => {
     return (
@@ -20,7 +21,7 @@ const WhyTaskPulse = () => {
                     <h1>3.Time-Saving Features</h1>
                     <h1>4.Reliability and Suppor</h1>
 
-                    <button className="btn btn-sm md:btn-md text-sub_color bg-main">Get Started</button>
+                    <Link to="/login"><button className="btn btn-sm md:btn-md text-sub_color bg-main">Get Started</button></Link>
                 </div>
             </div>
         </div>

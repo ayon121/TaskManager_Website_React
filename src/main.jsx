@@ -11,6 +11,7 @@ import {
 
 import Root from './Components/Pages/Layout/Root';
 import Home from './Components/Pages/Home/Home';
+import Login from './Components/Pages/Login/Login';
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path : "/",
         element : <Home></Home>
+      },
+      {
+        path : "/login",
+        element : <Login></Login>
       }
     ]
   },

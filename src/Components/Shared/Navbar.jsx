@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { MdOutlineTaskAlt } from "react-icons/md";
 import { Spin as Hamburger } from 'hamburger-react'
 import { useState } from "react";
@@ -33,7 +33,8 @@ const Navbar = () => {
                     <a className=" text-xl text-sub_color flex items-center"><span className="text-2xl">Task</span><MdOutlineTaskAlt />Pulse</a>
                 </div>
                 <div className="navbar-end">
-                    <button className="btn btn-sm md:btn-md text-main">Lets Explore</button>
+                    <Link to="/login"><button className="btn btn-sm md:btn-md text-main">Lets Explore</button></Link>
+                    
                 </div>
             </div>
         </div>
