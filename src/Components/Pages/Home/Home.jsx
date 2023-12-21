@@ -1,3 +1,4 @@
+import Footer from "../../Shared/Footer";
 import Navbar from "../../Shared/Navbar";
 import Banner from "./Banner/Banner";
 import Question from "./FAQ/Question";
@@ -13,6 +14,7 @@ const Home = () => {
             <WhomUse></WhomUse>
             <WhyTaskPulse></WhyTaskPulse>
             <Question></Question>
+            <Footer></Footer>
         </div>
     );
 };
