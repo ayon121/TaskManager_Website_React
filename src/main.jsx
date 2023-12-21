@@ -9,10 +9,19 @@ import {
   RouterProvider,
 } from "react-router-dom";
 
+import Root from './Components/Pages/Layout/Root';
+import Home from './Components/Pages/Home/Home';
+
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div  className='text-5xl'>Hello world!</div>,
+    element: <Root></Root>,
+    children : [
+      {
+        path : "/",
+        element : <Home></Home>
+      }
+    ]
   },
 ]);
 
