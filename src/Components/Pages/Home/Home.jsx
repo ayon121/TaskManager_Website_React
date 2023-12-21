@@ -1,5 +1,6 @@
 import Navbar from "../../Shared/Navbar";
 import Banner from "./Banner/Banner";
+import Question from "./FAQ/Question";
 import WhomUse from "./WhomUse/WhomUse";
 import WhyTaskPulse from "./WhyTaskPulse/WhyTaskPulse";
 
@@ -11,6 +12,7 @@ const Home = () => {
             <Banner></Banner>
             <WhomUse></WhomUse>
             <WhyTaskPulse></WhyTaskPulse>
+            <Question></Question>
         </div>
     );
 };
