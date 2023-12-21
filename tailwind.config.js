@@ -6,7 +6,17 @@ export default {
   ],
 
   theme: {
-    extend: {},
+    colors: {
+      'main': '#0d6efd',
+      'sub_color' : '#FFFFFF',
+      
+    },
+    extend: {
+      fontFamily : {
+        poppins : "'Poppins', sans-serif;"
+      }
+
+    },
   },
   plugins: [require("daisyui")],
 }
