@@ -37,16 +37,16 @@ const router = createBrowserRouter([
         element: <Register></Register>
       },
       {
-        path : "/addproduct",
-        element : <PrivateRoute><AddProduct></AddProduct></PrivateRoute>
+        path: "/addproduct",
+        element: <PrivateRoute><AddProduct></AddProduct></PrivateRoute>
       },
       {
-        path : "/dashboard",
+        path: "/dashboard",
         element: <PrivateRoute><DashBoard></DashBoard></PrivateRoute>
       },
       {
-        path : "/mytasks",
-        element : <PrivateRoute><MyTasks></MyTasks></PrivateRoute>
+        path: "/mytasks",
+        element: <PrivateRoute><MyTasks></MyTasks></PrivateRoute>
       }
     ]
   },
@@ -55,8 +55,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Authproviders>
-      <RouterProvider router={router} />
-    </Authproviders>
+      <Authproviders>
+        <RouterProvider router={router} />
+      </Authproviders>
   </React.StrictMode>,
 )
