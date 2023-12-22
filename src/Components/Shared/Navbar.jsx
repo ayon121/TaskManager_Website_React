@@ -16,7 +16,7 @@ const Navbar = () => {
     const navlinks = <>
         <li><NavLink to="/"  className={({ isActive }) => isActive ? 'text-sm  font-bold text-main bg-sub_color' : 'text-sm  bg-transparent text-[#f8f5f5]'}>Home</NavLink></li>
         <li><NavLink to="/dashboard">DashBoard</NavLink></li>
-        <li><NavLink to="/mytask" >My Tasks</NavLink></li>
+        <li><NavLink to="/mytasks" >My Tasks</NavLink></li>
         <li><NavLink to="/statistics" >Statistics</NavLink></li>
 
     </>
@@ -39,7 +39,7 @@ const Navbar = () => {
                     </div>
                 </div>
                 <div className="navbar-center">
-                    <a className=" text-xl text-sub_color flex items-center"><span className="text-2xl">Task</span><MdOutlineTaskAlt />Pulse</a>
+                    <a className=" text-xl text-sub_color flex items-center"><span className="text-xl md:text-2xl">Task</span><MdOutlineTaskAlt />Pulse</a>
                 </div>
                 <div className="navbar-end">
                     {

@@ -2,7 +2,7 @@
 
 const WhomUse = () => {
     return (
-        <div className="font-poppins w-full md:w-4/5">
+        <div className="font-poppins w-full">
             <div>
                 <h1 className="text-2xl md:text-4xl lg:text-5xl font-extrabold text-center">Our Top Users</h1>
             </div>

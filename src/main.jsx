@@ -17,6 +17,7 @@ import Authproviders from './Providers/Authproviders';
 import AddProduct from './Components/Pages/AddProduct/AddProduct';
 import DashBoard from './Components/Pages/DashBoard/DashBoard';
 import PrivateRoute from './PrivateRoute/PrivateRoute';
+import MyTasks from './Components/Pages/MyTasks/MyTasks';
 
 const router = createBrowserRouter([
   {
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
       {
         path : "/dashboard",
         element: <PrivateRoute><DashBoard></DashBoard></PrivateRoute>
+      },
+      {
+        path : "/mytasks",
+        element : <PrivateRoute><MyTasks></MyTasks></PrivateRoute>
       }
     ]
   },
