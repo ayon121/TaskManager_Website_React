@@ -14,6 +14,8 @@ import Home from './Components/Pages/Home/Home';
 import Login from './Components/Pages/Login/Login';
 import Register from './Components/Pages/Register/Register';
 import Authproviders from './Providers/Authproviders';
+import AddProduct from './Components/Pages/AddProduct/AddProduct';
+import DashBoard from './Components/Pages/DashBoard/DashBoard';
 
 const router = createBrowserRouter([
   {
@@ -31,6 +33,14 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>
+      },
+      {
+        path : "/addproduct",
+        element : <AddProduct></AddProduct>
+      },
+      {
+        path : "/dashboard",
+        element: <DashBoard></DashBoard>
       }
     ]
   },
