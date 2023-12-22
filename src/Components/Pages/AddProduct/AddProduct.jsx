@@ -1,8 +1,19 @@
+import { useContext } from "react";
 import Footer from "../../Shared/Footer";
 import Navbar from "../../Shared/Navbar";
+import { AuthContext } from "../../../Providers/Authproviders";
+import { axiosPublic } from "../../Hooks/useAxiosSecure";
+import { useNavigate } from "react-router-dom";
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 
 
 const AddProduct = () => {
+    const navigate = useNavigate()
+    const { user } = useContext(AuthContext)
+
+    const useremail = user.email
 
     const handleAddProduct = e => {
         e.preventDefault()
@@ -10,9 +21,18 @@ const AddProduct = () => {
         const taskname = form.get('taskname')
         const details = form.get('details')
         const date = form.get('date')
+        const status = 'incomplete'
 
-        const task = { taskname, details, date }
+        const task = { taskname, details, date , useremail  , status}
         console.log(task);
+
+        axiosPublic.post('/tasks' , task)
+        .then(res =>  {
+            if(res.data.insertedId){
+                toast('Task Added Successfuly')
+                navigate(`/dashboard`)
+            }
+        })
 
     }
 
@@ -35,7 +55,7 @@ const AddProduct = () => {
 
                             </div>
                         </form>
-
+                        <ToastContainer />
                     </div>
                 </div>
             </div>
