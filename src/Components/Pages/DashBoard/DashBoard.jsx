@@ -5,6 +5,10 @@ import { AuthContext } from "../../../Providers/Authproviders";
 import Navbar from "../../Shared/Navbar";
 import Footer from "../../Shared/Footer";
 import Tasks from "./Tasks";
+import useTodo from "../../Hooks/useTodo";
+import TodoTasks from "./TodoTasks";
+import useDone from "../../Hooks/useDone";
+import Done from "./Done";
 
 
 const DashBoard = () => {
@@ -14,6 +18,9 @@ const DashBoard = () => {
         .then(res => {
             setTasks(res.data);
         })
+
+    const [todo ] = useTodo()
+    const [done ] = useDone()
     return (
         <div>
             <div className="font-poppins">
@@ -48,19 +55,23 @@ const DashBoard = () => {
                             <h1>All Tasks</h1>
                             <hr />
                             {
-                                tasks.map(task => <Tasks key={task._id} task={task}></Tasks>)
+                                tasks?.map(task => <Tasks key={task._id} task={task}></Tasks>)
                             }
 
                         </div>
                         <div className="px-2 py-3 border-4 border-main rounded-3xl text-center">
                             <h1>To Do</h1>
                             <hr />
-
+                            {
+                                todo?.map(todo => <TodoTasks key={todo._id} task={todo}></TodoTasks>)
+                            }
                         </div>
                         <div className="px-2 py-3 border-4 border-main rounded-3xl text-center">
-                            <h1>Done</h1>
+                            <h1>Done Task</h1>
                             <hr />
-
+                            {
+                                done?.map(dones =><Done key={dones._id} task={dones} ></Done>)
+                            }
                         </div>
                     </div>
                 </div>
