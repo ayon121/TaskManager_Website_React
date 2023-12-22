@@ -2,11 +2,14 @@ import { useContext } from "react";
 import Footer from "../../Shared/Footer";
 import Navbar from "../../Shared/Navbar";
 import { AuthContext } from "../../../Providers/Authproviders";
+import { useNavigate } from "react-router-dom";
 
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
-    const { loginUser } = useContext(AuthContext)
+    const { loginUser,  GoogleLogin } = useContext(AuthContext)
+    const navigate = useNavigate()
 
     const handlelogin = e => {
         e.preventDefault()
@@ -18,6 +21,18 @@ const Login = () => {
             .catch(error => console.log(error))
 
     }
+
+    const HandleGoogleLogin = () => {
+        GoogleLogin()
+            .then(result => {
+                console.log(result)
+                toast("Login Success")
+                navigate('/')
+
+            })
+            .catch(error => toast(error.message))
+    }
+
 
     return (
         <div>
@@ -34,12 +49,13 @@ const Login = () => {
                                 </div>
                         </form>
                         <div className="px-3 pb-3 text-center">
-                            <button className="btn bg-main text-sub_color w-full">Google</button>
+                            <button className="btn bg-main text-sub_color w-full" onClick={HandleGoogleLogin}>Google</button>
                             <p>Do not have a account? <a href="/register" className="text-main">Register Now</a></p>
                         </div>
                     </div>
                 </div>
             </div>
+            <ToastContainer/>
             <Footer></Footer>
         </div>
     );

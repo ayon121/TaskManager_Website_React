@@ -3,10 +3,13 @@ import { AuthContext } from "../../../Providers/Authproviders";
 import Footer from "../../Shared/Footer";
 import Navbar from "../../Shared/Navbar";
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
-    const { createUser } = useContext(AuthContext)
-
+    const { createUser , GoogleLogin } = useContext(AuthContext)
+    const navigate = useNavigate()
     const handleRegister = e => {
         e.preventDefault()
         const form = new FormData(e.currentTarget);
@@ -18,6 +21,17 @@ const Register = () => {
         createUser(email, password)
             .then(result => console.log(result))
             .catch(error => console.log(error))
+    }
+
+    const HandleGoogleLogin = () => {
+        GoogleLogin()
+            .then(result => {
+                console.log(result)
+                toast("Login Success")
+                navigate('/')
+
+            })
+            .catch(error => toast(error.message))
     }
 
     return (
@@ -39,13 +53,14 @@ const Register = () => {
                             </div>
                         </form>
                         <div className="px-3 pb-3 text-center">
-                            <button className="btn bg-main text-sub_color w-full">Google</button>
+                            <button className="btn bg-main text-sub_color w-full" onClick={HandleGoogleLogin}>Google</button>
                             <p>Already have a account? <a href="/login" className="text-main mb-2">Login</a></p>
                         </div>
                     </div>
                 </div>
             </div>
             <Footer></Footer>
+            <ToastContainer/>
         </div>
     );
 };
